@@ -1,291 +1,391 @@
-###############################################################################
-# GIT CHEATSHEET
-#
-# Author  : Ikhwan Puji Indratno
-# Project : CapyDB
-#
-# Git is not only a version control system.
-# Git is the history of your project.
-###############################################################################
+# Git Basics
 
-===============================================================================
-LEVEL 1 - DAILY COMMANDS
-===============================================================================
+> Git is not only a version control system.
+> Git is the history of your project.
 
-1. git status
--------------------------------------------------------------------------------
-Function
-    Show the current status of the working directory.
+---
 
-Use When
-    - Check modified files.
-    - Check staged files.
-    - Check branch status.
-    - Check if working tree is clean.
+**Author** : Ikhwan Puji Indratno
 
-Example
-    git status
+**Project** : CapyDB
 
-===============================================================================
+---
 
-2. git add
--------------------------------------------------------------------------------
-Function
-    Move file changes from the Working Directory to the Staging Area.
+# Level 1 — Daily Commands
 
-Use When
-    - Select files for the next commit.
-    - Prepare changes before committing.
+## 1. `git status`
 
-Example
-    git add README.md
+### Function
 
-or
+Show the current status of the working directory.
 
-    git add .
+### Use When
 
-===============================================================================
+- Check modified files.
+- Check staged files.
+- Check branch status.
+- Check if the working tree is clean.
 
-3. git diff
--------------------------------------------------------------------------------
-Function
-    Show differences between the Working Directory and the Staging Area.
+### Example
 
-Use When
-    - Review changes before staging.
+```bash
+git status
+```
 
-Example
-    git diff
+---
 
-===============================================================================
+## 2. `git add`
 
-4. git diff --cached
--------------------------------------------------------------------------------
-Function
-    Show differences that have already been staged.
+### Function
 
-Use When
-    - Review staged changes before commit.
+Move file changes from the Working Directory to the Staging Area.
 
-Example
-    git diff --cached
+### Use When
 
-===============================================================================
+- Select files for the next commit.
+- Prepare changes before committing.
 
-5. git commit
--------------------------------------------------------------------------------
-Function
-    Save staged changes into the Local Repository.
+### Example
 
-Use When
-    - Create a logical checkpoint.
-    - Record completed work.
-
-Example
-    git commit -m "Initialize CapyDB foundation"
-
-===============================================================================
-
-6. git push
--------------------------------------------------------------------------------
-Function
-    Upload local commits to the remote repository.
-
-Use When
-    - Share changes.
-    - Backup work to GitHub.
-
-Example
-    git push
-
-===============================================================================
-LEVEL 2 - HISTORY & INVESTIGATION
-===============================================================================
-
-7. git log
--------------------------------------------------------------------------------
-Function
-    Show commit history.
-
-Useful Options
-    git log
-    git log --oneline
-    git log --graph --oneline --decorate
-
-Use When
-    - Review project history.
-    - Find previous commits.
-
-===============================================================================
-
-8. git show
--------------------------------------------------------------------------------
-Function
-    Show detailed information about a commit.
-
-Use When
-    - Inspect commit contents.
-    - Review changed files.
-
-Example
-    git show
+```bash
+git add README.md
+```
 
 or
 
-    git show <commit-id>
+```bash
+git add .
+```
 
-===============================================================================
+---
 
-9. git blame
--------------------------------------------------------------------------------
-Function
-    Show which commit last modified each line of a file.
+## 3. `git diff`
 
-Use When
-    - Investigate bugs.
-    - Understand file history.
+### Function
 
-Example
-    git blame README.md
+Show differences between the Working Directory and the Staging Area.
 
-===============================================================================
+### Use When
 
-10. git log <file>
--------------------------------------------------------------------------------
-Function
-    Show commit history for a specific file.
+- Review changes before staging.
 
-Use When
-    - Track changes to one file only.
+### Example
 
-Example
-    git log README.md
+```bash
+git diff
+```
 
-===============================================================================
+---
 
-11. git diff <commit>
--------------------------------------------------------------------------------
-Function
-    Compare commits.
+## 4. `git diff --cached`
 
-Use When
-    - Review differences between versions.
+### Function
 
-Example
-    git diff HEAD~1
+Show differences that have already been staged.
+
+### Use When
+
+- Review staged changes before committing.
+
+### Example
+
+```bash
+git diff --cached
+```
+
+---
+
+## 5. `git commit`
+
+### Function
+
+Save staged changes into the Local Repository.
+
+### Use When
+
+- Create a logical checkpoint.
+- Record completed work.
+
+### Example
+
+```bash
+git commit -m "Initialize CapyDB foundation"
+```
+
+---
+
+## 6. `git push`
+
+### Function
+
+Upload local commits to the remote repository.
+
+### Use When
+
+- Share changes.
+- Backup work to GitHub.
+
+### Example
+
+```bash
+git push
+```
+
+---
+
+# Level 2 — History & Investigation
+
+## 7. `git log`
+
+### Function
+
+Show commit history.
+
+### Useful Options
+
+```bash
+git log
+git log --oneline
+git log --graph --oneline --decorate
+```
+
+### Use When
+
+- Review project history.
+- Find previous commits.
+
+---
+
+## 8. `git show`
+
+### Function
+
+Show detailed information about a commit.
+
+### Use When
+
+- Inspect commit contents.
+- Review changed files.
+
+### Example
+
+```bash
+git show
+```
 
 or
 
-    git diff 577a562 cc37ba6
+```bash
+git show <commit-id>
+```
 
-===============================================================================
-LEVEL 3 - VERSION MANAGEMENT
-===============================================================================
+---
 
-12. git tag
--------------------------------------------------------------------------------
-Function
-    Mark important milestones.
+## 9. `git blame`
 
-Use When
-    - Release versions.
-    - Milestone completion.
+### Function
 
-Example
-    git tag v0.1.0
+Show which commit last modified each line of a file.
 
-===============================================================================
-LEVEL 4 - BRANCHING
-===============================================================================
+### Use When
 
-13. git branch
--------------------------------------------------------------------------------
-Function
-    Create or manage branches.
+- Investigate bugs.
+- Understand file history.
 
-Use When
-    - Develop features independently.
-    - Isolate experiments.
+### Example
 
-Example
-    git branch
+```bash
+git blame README.md
+```
 
-    git branch feature/sql-generator
+---
 
-===============================================================================
+## 10. `git log <file>`
 
-14. git merge
--------------------------------------------------------------------------------
-Function
-    Combine changes from another branch.
+### Function
 
-Use When
-    - Finish a feature.
-    - Integrate work into main.
+Show commit history for a specific file.
 
-Example
-    git merge feature/sql-generator
+### Use When
 
-===============================================================================
+- Track changes to one file only.
 
-15. git rebase
--------------------------------------------------------------------------------
-Function
-    Reapply commits onto another branch to create a cleaner history.
+### Example
 
-Use When
-    - Keep history linear.
-    - Update feature branch from main.
+```bash
+git log README.md
+```
 
-Example
-    git rebase main
+---
 
-===============================================================================
-LEVEL 5 - ADVANCED OPERATIONS
-===============================================================================
+## 11. `git diff <commit>`
 
-16. git stash
--------------------------------------------------------------------------------
-Function
-    Temporarily save uncommitted changes.
+### Function
 
-Use When
-    - Switch tasks quickly.
-    - Pull latest changes without committing.
+Compare commits.
 
-Example
-    git stash
+### Use When
 
-===============================================================================
+- Review differences between versions.
 
-17. git revert
--------------------------------------------------------------------------------
-Function
-    Undo a commit by creating a new commit.
+### Example
 
-Use When
-    - Safely undo changes in shared repositories.
+```bash
+git diff HEAD~1
+```
 
-Example
-    git revert <commit-id>
+or
 
-===============================================================================
+```bash
+git diff 577a562 cc37ba6
+```
 
-18. git cherry-pick
--------------------------------------------------------------------------------
-Function
-    Copy a specific commit from another branch.
+---
 
-Use When
-    - Reuse one commit without merging everything.
+# Level 3 — Version Management
 
-Example
-    git cherry-pick <commit-id>
+## 12. `git tag`
 
-===============================================================================
-CAPYDB GIT WORKFLOW
-===============================================================================
+### Function
 
+Mark important milestones.
+
+### Use When
+
+- Release versions.
+- Milestone completion.
+
+### Example
+
+```bash
+git tag v0.1.0
+```
+
+---
+
+# Level 4 — Branching
+
+## 13. `git branch`
+
+### Function
+
+Create or manage branches.
+
+### Use When
+
+- Develop features independently.
+- Isolate experiments.
+
+### Example
+
+```bash
+git branch
+```
+
+```bash
+git branch feature/sql-generator
+```
+
+---
+
+## 14. `git merge`
+
+### Function
+
+Combine changes from another branch.
+
+### Use When
+
+- Finish a feature.
+- Integrate work into `main`.
+
+### Example
+
+```bash
+git merge feature/sql-generator
+```
+
+---
+
+## 15. `git rebase`
+
+### Function
+
+Reapply commits onto another branch to create a cleaner history.
+
+### Use When
+
+- Keep history linear.
+- Update feature branch from `main`.
+
+### Example
+
+```bash
+git rebase main
+```
+
+---
+
+# Level 5 — Advanced Operations
+
+## 16. `git stash`
+
+### Function
+
+Temporarily save uncommitted changes.
+
+### Use When
+
+- Switch tasks quickly.
+- Pull latest changes without committing.
+
+### Example
+
+```bash
+git stash
+```
+
+---
+
+## 17. `git revert`
+
+### Function
+
+Undo a commit by creating a new commit.
+
+### Use When
+
+- Safely undo changes in shared repositories.
+
+### Example
+
+```bash
+git revert <commit-id>
+```
+
+---
+
+## 18. `git cherry-pick`
+
+### Function
+
+Copy a specific commit from another branch.
+
+### Use When
+
+- Reuse one commit without merging everything.
+
+### Example
+
+```bash
+git cherry-pick <commit-id>
+```
+
+---
+
+# CapyDB Git Workflow
+
+```text
 Working Directory
         │
         ▼
@@ -308,16 +408,14 @@ git push
         │
         ▼
 GitHub
+```
 
-===============================================================================
-ENGINEERING PRINCIPLE
-===============================================================================
+---
 
-Every Commit Tells a Story.
+# Engineering Principle
+
+> **Every Commit Tells a Story.**
 
 A commit should represent one meaningful change.
 
-Good commit messages make project history understandable, traceable,
-and explainable.
-
-###############################################################################
+Good commit messages make project history understandable, traceable, and explainable.
