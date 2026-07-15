@@ -105,7 +105,9 @@ docs/engineering-principles.md
 
 ## License
 
-Private Project
+No license has been assigned yet.
+
+All rights reserved.
 
 ---
 
@@ -116,3 +118,5 @@ CapyDB is built on three fundamental beliefs:
 - Every request leaves a trace.
 - Every event must be explainable.
 - Every execution tells a story.
+
+We believe great engineering is not only about building systems that work, but also building systems that can be understood, trusted, and explained.
