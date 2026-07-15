@@ -66,8 +66,8 @@ capydb/
 - [x] n8n Development Environment
 - [x] Engineering Principles
 - [x] README
-- [ ] GitHub Repository
-- [ ] Initial Commit
+- [x] GitHub Repository
+- [x] Initial Commit
 
 ### Phase 1 — AI Workflow
 
