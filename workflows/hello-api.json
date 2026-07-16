@@ -1,0 +1,63 @@
+{
+  "name": "CapyDB - Hello API",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "capydb",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "889f38c1-3fdc-4dae-8eed-4834699bc3e0",
+      "name": "Webhook",
+      "webhookId": "aa623b0f-1439-42a2-bd1b-c3b3795cf093"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"message\": \"Hello from CapyDB\",\n  \"version\": \"0.1.0\",\n  \"status\": \"running\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        208,
+        0
+      ],
+      "id": "53c33338-dd8e-41be-bfdd-d335586ad761",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "6a446147-6d8d-4e5d-a1c0-9db3c8ccaff7",
+  "meta": {
+    "instanceId": "7ef3a787a79b1a5e302d2f8226422734e4bbe404c6ef08b1e2628ee71f4d9929"
+  },
+  "nodeGroups": [],
+  "id": "NQZf87cf3BbdAHIF",
+  "tags": []
+}
