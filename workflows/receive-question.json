@@ -1,0 +1,131 @@
+{
+  "name": "CapyDB - Receive Question",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "capydb/question",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "9a61fa44-60b4-4184-8ea2-7e032e3d5dbc",
+      "name": "Webhook",
+      "webhookId": "bbe40b4b-5927-4803-ba36-31008017f398"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ {\n  question: $json.body.question,\n  status: \"received\"\n} }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        416,
+        -64
+      ],
+      "id": "eeea956e-5df6-4a9f-a391-54558b4c5559",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b3122669-86b9-4db0-bd30-72475ccfcf54",
+              "leftValue": "={{ $json.body.question }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        208,
+        0
+      ],
+      "id": "95d1a076-a173-45d2-9077-99c930bd91b1",
+      "name": "Validate Question"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"error\": \"Question is required\",\n  \"status\": \"invalid_request\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        432,
+        96
+      ],
+      "id": "56b3b10d-e226-4338-90d0-f33d86e41e44",
+      "name": "Respond Invalid Question"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Validate Question",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Question": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond Invalid Question",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "abf6eb7c-f567-4952-813b-b1ddc5d47aa9",
+  "meta": {
+    "instanceId": "7ef3a787a79b1a5e302d2f8226422734e4bbe404c6ef08b1e2628ee71f4d9929"
+  },
+  "nodeGroups": [],
+  "id": "zbNcIhhwMpPCvNck",
+  "tags": []
+}
