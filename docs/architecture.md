@@ -4,9 +4,9 @@
 
 ---
 
-**Version** : 0.1.0
+**Version** : 0.1.1
 
-**Last Updated** : 2026-07-15
+**Last Updated** : 2026-07-17
 
 **Author** : Ikhwan Puji Indratno
 
@@ -40,20 +40,29 @@ At the current stage, CapyDB consists of a minimal development environment.
 
 ```text
                 +----------------+
-                |     User       |
+                | User / Client  |
                 +--------+-------+
                          |
+                         | HTTP Request
+                         ▼
+                +----------------+
+                |  Webhook API   |
+                +--------+-------+
                          |
                          ▼
-                 +---------------+
-                 |      n8n      |
-                 | Workflow      |
-                 +-------+-------+
-                         |
+                +----------------+
+                |      n8n       |
+                | Workflow Engine|
+                +--------+-------+
                          |
                          ▼
-                    AI Services
-                  (Future Integration)
+                +----------------+
+                | Respond to     |
+                | Webhook        |
+                +--------+-------+
+                         |
+                         ▼
+                  JSON Response
 ```
 
 Current components:
@@ -62,6 +71,8 @@ Current components:
 |----------|----------|
 | Docker Compose | Local development environment |
 | n8n | Workflow orchestration |
+| Webhook API | Entry point for HTTP requests |
+| Hello API Workflow | First CapyDB API workflow for request and response testing |
 | Git | Source control |
 | GitHub | Remote repository |
 | Documentation | Project knowledge base |
