@@ -1,7 +1,19 @@
 # ADR-0004: Canonical Data Contract
 
 - Status: Proposed
-- Date: 2026-07-20
+- Current Version: v1.1
+
+---
+
+
+## Revision History
+
+| Date | Version | Description |
+|------|---------|-------------|
+| 2026-07-20 | v1 | Initial proposal |
+| 2026-07-20 | v1.1 | Added `prompt` section to the canonical document and assigned ownership to Prompt Preparation |
+
+---
 
 ## Scope
 
@@ -65,6 +77,8 @@ languages, and AI providers without changing the overall pipeline architecture.
 
   "context": {},
 
+  "prompt": {},
+
   "generation": {},
 
   "execution": {},
@@ -87,9 +101,11 @@ write to the section it owns.
 | Receive | metadata, request |
 | Input Validation | validation |
 | Context Preparation | context |
+| Prompt Preparation | prompt |
 | AI Generation | generation |
 | Execution Decision | execution |
 | Response | response |
+
 
 ---
 
@@ -129,7 +145,7 @@ Changing AI providers must not require changing the document structure.
 
 ## Example
 
-Example document after Context Preparation.
+Example document after Prompt Preparation.
 
 ```json
 {
@@ -158,6 +174,12 @@ Example document after Context Preparation.
       "allowWrite": false,
       "allowDDL": false
     }
+  },
+  
+  "prompt": {
+    "version": "v1",
+    "system": "You are an SQL generation assistant.",
+    "user": "Generate a read-only PostgreSQL SQL query for: Show active accounts."
   },
 
   "generation": {},
@@ -198,7 +220,6 @@ existing ownership rules.
 
 Examples include:
 
-- prompt
 - retrieval
 - audit
 - observability
