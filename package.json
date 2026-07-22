@@ -1,0 +1,27 @@
+{
+  "name": "capydb",
+  "version": "1.0.0",
+  "description": "AI-powered Database Automation Platform",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/araladiv13/capydb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/araladiv13/capydb/issues"
+  },
+  "homepage": "https://github.com/araladiv13/capydb#readme",
+  "devDependencies": {
+    "jest": "^30.4.2"
+  }
+}
