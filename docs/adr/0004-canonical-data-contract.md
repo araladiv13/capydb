@@ -1,7 +1,7 @@
 # ADR-0004: Canonical Data Contract
 
 - Status: Proposed
-- Current Version: v1.1
+- Current Version: v1.2
 
 ---
 
@@ -12,6 +12,7 @@
 |------|---------|-------------|
 | 2026-07-20 | v1 | Initial proposal |
 | 2026-07-20 | v1.1 | Added `prompt` section to the canonical document and assigned ownership to Prompt Preparation |
+| 2026-07-23 | v1.2 | Defined minimum schema for each canonical document section |
 
 ---
 
@@ -60,6 +61,10 @@ This contract is independent from:
 This decision enables CapyDB to support multiple database platforms, query
 languages, and AI providers without changing the overall pipeline architecture.
 
+Each workflow stage may assume that all previous workflow stages have produced data that satisfies the minimum schema defined by this contract.
+
+Workflow stages are therefore not responsible for re-validating data produced by earlier stages.
+
 ---
 
 ## Canonical Structure
@@ -106,6 +111,26 @@ write to the section it owns.
 | Execution Decision | execution |
 | Response | response |
 
+---
+
+## Section Schema
+
+The canonical document defines the minimum schema required for each section.
+
+Required fields are guaranteed to exist when a workflow stage begins processing the canonical document.
+
+Workflow stages may extend their owned section, provided the minimum schema remains backward compatible.
+
+| Section    | Minimum Required Fields  |
+| ---------- | ------------------------ |
+| metadata   | traceId, receivedAt      |
+| request    | question                 |
+| validation | valid, errors            |
+| context    | target, capabilities     |
+| prompt     | version, system, user    |
+| generation | implementation-defined   |
+| execution  | implementation-defined   |
+| response   | implementation-defined   |
 
 ---
 
